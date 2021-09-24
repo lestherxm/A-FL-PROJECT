@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>PROYECTO AUTÓMATAS</title>
+</head>
+<body>
+     <div class="instructions">
+         <h4>RESTRICCIONES</h4>
+         <ul>
+             <li>Cada uno de los componentes del autómata debe estar separado por un salto de línea</li>
+             <li>Los componentes del autómata deben seguir el orden: (estados, alfabeto, estado inicial, estados de aceptación)</li>
+             <li>Se debe evitar espacios y caracteres innecesarios, como por ejemplo:  S   = { a,b,  c} `  (forma correcta: S={a,b,c})</li>
+             <li>Cada item de los estados, alfabeto y estados de aceptación deben estar separados por coma</li>
+             <li>El esado inicial no se debe escribir dentro de llaves (se sabe de forma concreta que sólo es uno)</li>
+        </ul>
+        <hr>
+        <h4>EJEMPLO</h4>
+        <img src="./assets/img/fileExample.png" alt="Ejemplo: esctructura del archivo" title="Ejemplo: esctructura del archivo">
+        <hr>
+     </div>
+
+     <div class="selectingFile">
+         <section id="formZone">
+                <h4>SELECCIONE EL ARCHIVO</h4>
+                <form name="form">
+                     <input type="file" name="files" id="files">
+                </form>
+         </section>
+         <section id="dataZone">
+         </section>
+     </div>
+
+     <script src="./js/index.js" ></script>
+</body>
+</html>
