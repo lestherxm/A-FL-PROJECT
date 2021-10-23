@@ -1,4 +1,4 @@
-# A-FL-PROJECT
+# PALF = PROYECTO AUTÓMATAS Y LENGUAJES FORMALES
 Proyecto de autómatas y lenguajes formales, sexto ciclo de ingeniería en sistemas.
 
 # AUTOR
