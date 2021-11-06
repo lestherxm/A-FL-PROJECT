@@ -1,5 +1,5 @@
-# PALF = PROYECTO AUTÓMATAS Y LENGUAJES FORMALES
-Proyecto de autómatas y lenguajes formales, sexto ciclo de ingeniería en sistemas.
+# PALF
+Proyecto de Autómatas y Lenguajes Formales, sexto ciclo de ingeniería en sistemas.
 
 # AUTOR
 * XITUMUL MANUEL, LESTHER CARLOS HORALDO
