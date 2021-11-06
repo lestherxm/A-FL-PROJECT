@@ -10,14 +10,31 @@
 </head>
 <body>
      <div class="instructions">
-         <h4>RESTRICCIONES</h4>
-         <ul>
-             <li>Cada uno de los componentes del autómata debe estar separado por un salto de línea</li>
-             <li>Los componentes del autómata deben seguir el orden: (estados, alfabeto, estado inicial, estados de aceptación)</li>
-             <li>Se debe evitar espacios y caracteres innecesarios, como por ejemplo:  S   = { a,b,  c} `  (forma correcta: S={a,b,c})</li>
-             <li>Cada item de los estados, alfabeto y estados de aceptación deben estar separados por coma</li>
-             <li>El esado inicial no se debe escribir dentro de llaves (se sabe de forma concreta que sólo es uno)</li>
-        </ul>
+         <h4>RESTRICCIONES PARA EL ARCHIVO DE TEXTO</h4>
+         <p>Este software funcionará correctamente sólo si se cumplen las siguientes restricciones:</p>
+         <ol>
+             <li>
+                <h6>COMPONENTES</h6>
+                <ul>
+                    <li>Cada uno de los componentes del autómata debe estar separado por un salto de línea</li>
+                    <li>Los componentes del autómata deben seguir el orden: (estados, alfabeto, estado inicial, estados de aceptación)</li>
+                    <li>Se debe evitar espacios y caracteres innecesarios, como por ejemplo:  S   = { a,b,  c} `  (forma correcta: S={a,b,c})</li>
+                    <li>Cada item de los estados, alfabeto y estados de aceptación deben estar separados por coma</li>
+                    <li>El esado inicial no se debe escribir dentro de llaves (se sabe de forma concreta que sólo es uno)</li>
+               </ul>
+             </li>
+             <li>
+                <h6>TRANSICIONES</h6>
+                <ul>
+                    <li>Se debe colocar el símbolo "$" en una nueva sola línea para indicar el inicio y fin de las transiciones</li>
+                    <li>Para los N estados del autómata se debe indicar las N transiciones por los N símbolos del alfabeto</li>
+                    <li>En caso de que X estado no cuente con una transición específica para X símbolo del alfabeto, se debe colocar un guión</li>
+                    <li>Cada transición está compuesta por un estado de partida, el símbolo que hace la transición y un estado de destino</li>
+                    <li>Los componentes de cada una de las transiciones deben de estar separadas por punto y coma</li>
+                    <li>Cada transición debe escribirse en una sóla línea, no es válido  escribir más de una transición en la misma línea</li>
+                </ul>
+             </li>
+         </ol>
         <hr>
         <h4>EJEMPLO</h4>
         <img src="./assets/img/fileExample.png" alt="Ejemplo: esctructura del archivo" title="Ejemplo: esctructura del archivo">
@@ -31,6 +48,7 @@
                      <input type="file" name="files" id="files" accept=".txt">
                 </form>
          </section>
+         <br><br>
          <section id="dataZone">
          </section>
      </div>
