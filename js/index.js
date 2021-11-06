@@ -72,31 +72,46 @@ function showdAta(e){
     createElementsForComponentes()//este metodo crea filas y columnas html con los datos que ya se tiene en los arryas.
     dataZone.innerHTML += '<hr><br>' //se crea otra "sección" para posteriormente escribir las transiciones.
     //console.log("LECTURA DE TRANSICIONES")
-        readTransactions(result,currentItem+6)
+         readTransitions(result,currentItem+6)
         // 6 porque:
         // 1 pertenece al caracter } de finalizacion de estados de aceptacion
         // 2 corresponde al salto de linea
         // 1 corresponde al caracter inicio de transiciones $
         // 2 corresponde al salto de linea de dicho caracter 
-            createElementsForTransactions() //una vez se tiene las transiciones, se ponen en una tabla
+             createElementsForTransitions() //una vez se tiene las transiciones, se ponen en una tabla
 }
 
-function readTransactions(result, item){
+function readTransitions(result, item){
      var endTransac = '$'
         //mientras el item actual no sea el que indica finalizacion de transiciones, leer las transiciones.
-        while(result[item] != endTransac){
-             var nTransition = new Array()
-             //la posicion uno de una transicion es el estado de partida de dicha transicion
-             nTransition[0] = result[item]  //item corresopnde al estado de partida
-             //la posicion dos de una transicion corresponde  al simbolo que hace el cambio en dicha transicion
-             nTransition[1] = result[item+2] //se agrega dos espacios porque 1 corresponde al punto y coma separador y el otro al simbolo del alfabeto que hace la transicion
-             //la posicion 2 de una transicion cooresponde al estado de destino de dicha transicion
-             nTransition[2] = result[item+4] //se agrega cuatro porque sigue siendo el mismo valor y se hace el mismo procedimiento anterior a diferencia de que ahora se lee el estado de destino
-             aTransitions.push(nTransition) //se setea una nueva transicion por cada iteracion al array de transiciones
-                    item += 7 //finalmente se aumenta la variable item, cada transiciones esta compuesta de 7 caracteres
-                              //1 corresponde al estado de partida, 1 al simbolo, 1 al estado de destino, 2 al salto de linea y 2 por los puntos y coma
-        }
+        var correctTransitions = validateTransitions(result, item)
+            if(correctTransitions){
+                while(result[item] != endTransac){
+                    var nTransition = new Array()
+                    //la posicion uno de una transicion es el estado de partida de dicha transicion
+                    nTransition[0] = result[item]  //item corresopnde al estado de partida
+                    //la posicion dos de una transicion corresponde  al simbolo que hace el cambio en dicha transicion
+                    nTransition[1] = result[item+2] //se agrega dos espacios porque 1 corresponde al punto y coma separador y el otro al simbolo del alfabeto que hace la transicion
+                    //la posicion 2 de una transicion cooresponde al estado de destino de dicha transicion
+                    nTransition[2] = result[item+4] //se agrega cuatro porque sigue siendo el mismo valor y se hace el mismo procedimiento anterior a diferencia de que ahora se lee el estado de destino
+                    aTransitions.push(nTransition) //se setea una nueva transicion por cada iteracion al array de transiciones
+                           item += 7 //finalmente se aumenta la variable item, cada transiciones esta compuesta de 7 caracteres
+                                     //1 corresponde al estado de partida, 1 al simbolo, 1 al estado de destino, 2 al salto de linea y 2 por los puntos y coma
+                }
+           }else{
+               alert("LOS DATOS DE LA TABLA DE TRANSICIONES NO FUERON CARGADOS PORQUE EL ARCHIVO NO CUMPLE CON LAS ESPECIFICACIONES NECESARIAS")
+           } 
         //la funcion no retorna nada, simplemente se continua con el resto del codigo que está después de donde fue invocada
+}
+
+function validateTransitions(result, item){
+    // se valida las N tansiciones que debería haber en el archivo
+    var nTransitions = aStatuses.length * aAlphabet.length
+    var nCharacters = nTransitions * 7
+        if(result[item+nCharacters]=="$"){
+            return true
+        }
+    return false
 }
 
 function goFile(result,item, findInitialState, component){ //este metodo recorre el archivo.txt a partir del punto que se le es indicado, de modo que se obtiene todos los items del componente del automata
@@ -161,7 +176,7 @@ function createElementsForComponentes(){
          
 }
 
-function createElementsForTransactions(){
+function createElementsForTransitions(){
     //console.log(aTransitions)
     //console.log(aTransitions.length)
     //creacion del titulo para identificar la tabla de transiciones
