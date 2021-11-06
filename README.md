@@ -10,4 +10,4 @@ La finalidad de esta aplicación web es leer los datos de un archivo de texto co
 representa un autómata; por lo cual, los datos son presentados en dos tablas, una para mostrar sus componentes y otra para mostrar sus transiciones.
 
 # EJEMPLO LECTURA DEL ARCHIVO
-# ![EJEMPLO LECTURA DEL ARCHIVO](https://raw.githubusercontent.com/lestherxm/A-FL-PROJECT/main/assets/img/step1-readmeExample.png)
+![EJEMPLO LECTURA DEL ARCHIVO](https://raw.githubusercontent.com/lestherxm/A-FL-PROJECT/main/assets/img/step1-readmeExample.png)
