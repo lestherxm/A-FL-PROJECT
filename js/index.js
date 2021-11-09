@@ -1,6 +1,7 @@
 var dataZone = document.getElementById('dataZone') //elemento html donde se mostrará los datos
-var componentsTable = document.getElementById('componentsTable') // tabla que contendrá cada uno de los componentes
 var files = document.getElementById('files') //boton para obtener el archivo
+
+// 1. CÓMO SE ALMACENA LA INFORMACIÓN
 //variables/estructuras de datos que contendrán los componentes del autómta/archivo leído
 var aStatuses = new Array()
 var aAlphabet = new Array()
@@ -10,6 +11,7 @@ var aTransitions = new Array();
 
 files.addEventListener('change',process)//cuando se "cambie" de archivo seleccionado, se ejecutará el método process
 
+//2. FUNCIÓN QUE PERMITE ALMACENAR LA INFORMACIÓN
 function process(e){
     // "e" es el input de tipo file
     // "files" es una propiedad que tiene un array que contiene los elementos seleccionados por el botón
@@ -19,11 +21,9 @@ function process(e){
     var reader = new FileReader() 
     reader.readAsText(myFile)
     reader.addEventListener('load', showdAta) //una vez cargado un archivo, se ejecutará el metodo showdAta para mostrar la data
-
 }
 
 function showdAta(e){
-
     var result = e.target.result //result es la variable que contiene todas las letras del texto que contiene el archivo.txt
     var currentItem = 3 //currentItem es la variable auxiliar que me permitirá leer letra por letra el archivo
     // ¿Por qué es igual a 3? Porque en un archivo
@@ -72,7 +72,8 @@ function showdAta(e){
     createElementsForComponentes()//este metodo crea filas y columnas html con los datos que ya se tiene en los arryas.
     dataZone.innerHTML += '<hr><br>' //se crea otra "sección" para posteriormente escribir las transiciones.
     //console.log("LECTURA DE TRANSICIONES")
-         readTransitions(result,currentItem+6)
+        
+        readTransitions(result,currentItem+6)
         // 6 porque:
         // 1 pertenece al caracter } de finalizacion de estados de aceptacion
         // 2 corresponde al salto de linea
@@ -176,10 +177,8 @@ function createElementsForComponentes(){
          
 }
 
+// 3. FUNCIÓN QUE ARMA LA TABLAR DE TRANSICIONES
 function createElementsForTransitions(){
-    //console.log(aTransitions)
-    //console.log(aTransitions.length)
-    //creacion del titulo para identificar la tabla de transiciones
     var tittleSectionTransitions = document.createElement('h4')
     tittleSectionTransitions.textContent = 'TRANSICIONES DEL AUTÓMATA'
     dataZone.append(tittleSectionTransitions) 
@@ -241,5 +240,4 @@ function createElementsForTransitions(){
      tableTransitions.appendChild(tableBody)
      // *** finalmente la nueva tabla se agrega al div @dataZone para ser visualizado por el usuario
      dataZone.appendChild(tableTransitions)
-
 }
